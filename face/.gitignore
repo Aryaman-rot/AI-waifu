@@ -1,0 +1,19 @@
+# VRM model: personal asset, licensed to the user, never committed.
+*.vrm
+*.VRM
+
+# the working copy the app loads
+assets/model.vrm
+
+# Mixamo animation clips: downloaded under an Adobe account, licence
+# forbids redistribution. Dropped in at runtime, never committed.
+*.fbx
+assets/idle.fbx
+
+# visual test capture output
+capture.png
+*.capture.png
+
+node_modules
+dist
+release

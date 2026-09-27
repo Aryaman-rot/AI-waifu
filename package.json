@@ -1,0 +1,19 @@
+{
+  "name": "ai-waifu",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "describe:screen": "bun run describe-screen.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/screenshot-desktop": "^1.15.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "screenshot-desktop": "^1.15.6"
+  }
+}

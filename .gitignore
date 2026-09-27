@@ -1,0 +1,75 @@
+# ── Secrets ────────────────────────────────────────────────────────────
+# Nothing in this repository may contain a real key. The Fish Audio key lives
+# in the FISH_AUDIO_API_KEY environment variable and the OpenCode Go key is read
+# from OpenCode's own auth.json - neither is ever written to a file here.
+.env
+.env.*
+*.env
+!.env.example
+*.pem
+*.key
+id_rsa*
+
+# ── Personal working notes ──────────────────────────────────────────────
+# The phase reports are private development notes, not project documentation.
+/reports/
+
+# ── VRM model (face) ────────────────────────────────────────────────────
+# 止丸式初音ミクNT by 止丸. The model's metadata declares
+# Redistribution_Prohibited under the PIA-PRO license, so the file must never
+# be committed. See README.md for how to supply your own.
+face/assets/*.vrm
+face/assets/*.VRM
+*.vrm
+*.VRM
+
+# ── Mixamo animation clips (face) ───────────────────────────────────────
+# Adobe Mixamo's terms grant a royalty-free licence to *use* the animations in
+# your own work; they do not grant the right to redistribute the source FBX.
+# These are downloaded under an Adobe account, so they stay out of the repo too.
+face/assets/idle/*.fbx
+*.fbx
+
+# ── Dependencies ────────────────────────────────────────────────────────
+node_modules
+face/node_modules
+
+# Python virtualenv (brain)
+.venv
+__pycache__
+*.py[cod]
+
+# ── Build output ────────────────────────────────────────────────────────
+face/dist
+dist
+out
+build
+face/release
+*.tgz
+
+# ── Runtime artefacts and dev scratch ───────────────────────────────────
+# Screenshots produced by the `--capture` diagnostic, plus any log a debug run
+# leaves behind.
+*.png
+face/capture.png
+*.log
+*.err
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# ── Caches ──────────────────────────────────────────────────────────────
+.eslintcache
+.cache
+.vite
+*.tsbuildinfo
+
+# ── Editors and OS ──────────────────────────────────────────────────────
+.idea
+.vscode
+.DS_Store
+Thumbs.db
+
+# ── Coverage ────────────────────────────────────────────────────────────
+coverage
+*.lcov
