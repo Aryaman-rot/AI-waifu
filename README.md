@@ -127,6 +127,43 @@ The model API key is **not** required — it is read from OpenCode's own
 
 ---
 
+## Quick start
+
+Once setup is done, one click is enough. There is a **Miku** shortcut on your
+Desktop.
+
+It starts the face in the background, waits for its WebSocket bridge to actually
+accept connections, picks your microphone by name, and then opens a window with
+her in it. The window stays open on purpose — that is where her replies appear
+and where you type to her.
+
+```
+Ctrl+Alt+M          (or double-click the Desktop shortcut)
+```
+
+To shut everything down:
+
+```powershell
+.\stop-miku.bat
+```
+
+From a terminal, the launcher is just:
+
+```powershell
+.\start-miku.ps1
+```
+
+It finds the microphone by name (`Rockerz 425` by default, override with
+`.\start-miku.ps1 -MicNeedle 'My Headset'`) rather than by index, because
+Bluetooth device indices move around between connections. If the headset is
+disconnected it says so instead of silently falling back to a microphone you did
+not intend to use.
+
+The two-terminal method below still works and is what you want when something is
+misbehaving and you want to read the output.
+
+---
+
 ## Running
 
 Start the face first, then the brain, in two terminals:
@@ -138,6 +175,14 @@ cd brain && .\.venv\Scripts\python.exe brain.py
 
 Order does not strictly matter. The brain is the WebSocket *client* and reports
 the bridge as unavailable until the face appears.
+
+If you want the microphone pre-selected when launching by hand, set
+`BRAIN_MIC` to a device index or to part of a device name:
+
+```bash
+$env:BRAIN_MIC = 2              # index, from !mic
+$env:BRAIN_MIC = 'Rockerz 425'  # or a name, which survives reconnection
+```
 
 ### Brain commands
 
